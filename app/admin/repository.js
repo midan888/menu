@@ -9,17 +9,20 @@ const schema = new mongoose.Schema({
 
 export const Admin = mongoose.model('Admin', schema);
 
-export const saveAdmin = ({ firstName, lastName, email, password }) => {
-  const admin = new Admin({
-    firstName,
-    lastName,
-    email,
-    password,
-  });
+export const saveAdmin = (adminModel, {
+  firstName,
+  lastName,
+  email,
+  password,
+}) => {
+  adminModel.firstName = firstName;
+  adminModel.lastName = lastName;
+  adminModel.email = email;
+  adminModel.password = password;
 
-  admin.save();
+  adminModel.save();
 
-  return admin;
+  return adminModel;
 }
 
 export const findByEmail = (email) => {
