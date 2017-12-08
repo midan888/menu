@@ -29,7 +29,7 @@ test('createAdmin', (done) => {
   });
 });
 
-test('findAdmin', (done) => {
+test('findAdminByEmail', (done) => {
   const email = 'Deon@josiah.net';
 
   axios.post('/admin/findByEmail', {
@@ -44,8 +44,22 @@ test('findAdmin', (done) => {
   });
 });
 
+test('findAdminById', (done) => {
+  const id = '59dabae5c89e7614aa25494c';
+  axios.post('/admin/findById', {
+    id,
+  }).then(({ status, data }) => {
+    expect(data).toMatchObject({
+      _id: id,
+    });
+
+    expect(status).toEqual(200);
+    done();
+  });
+});
+
 test('search', (done) => {
-  axios.post('/admin/search').then(({ status, data }) => {
+  axios.post('/admin/search').then(({ status }) => {
     expect(status).toEqual(200);
     done();
   });

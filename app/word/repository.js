@@ -9,20 +9,6 @@ const schema = new mongoose.Schema({
 
 export const Admin = mongoose.model('Admin', schema);
 
-class Repository {
-  static make() {
-    return new Repository(new Admin());
-  }
-
-  constructor(adminModel) {
-    this.adminModel = adminModel;
-  }
-
-  findByEmail(email) {
-    return this.adminModel.findOne({ email });
-  }
-}
-
 export const saveAdmin = (adminModel, {
   firstName,
   lastName,

@@ -1,5 +1,5 @@
 import { check, validationResult } from 'express-validator/check';
-import { saveAdmin, findByEmail, findAll, Admin } from './repository';
+import { saveAdmin, findByEmail, Admin, findById } from './repository';
 import { ValidationError } from '../main/exceptions';
 
 const validateRequest = (req) => {
@@ -27,7 +27,7 @@ export const createAdmin = (router) => {
   });
 };
 
-export const findAdmin = (router) => {
+export const findAdminByEmail = (router) => {
   const rules = [
     check('email').isEmail().not().isEmpty(),
   ];
@@ -41,7 +41,21 @@ export const findAdmin = (router) => {
   });
 };
 
-export const search = (router) => {
+export const findAdmin = (router) => {
+  const rules = [
+    check('id').not().isEmpty(),
+  ];
+
+  router.post('/admin/findById', rules, (req, res) => {
+    validateRequest(req);
+
+    findById(req.body.id).then((data) => {
+      res.json(data);
+    });
+  });
+};
+
+export const search = (router, findAll) => {
   router.post('/admin/search', (req, res) => {
     findAll().then((data) => {
       res.json(data);
