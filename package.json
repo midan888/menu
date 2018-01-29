@@ -6,19 +6,32 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint app/**",
-    "start": "nodemon index.js --exec babel-node"
+    "start": "nodemon",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/body-parser": "^1.16.8",
+    "@types/cors": "^2.8.3",
+    "@types/express": "^4.0.39",
+    "@types/express-validator": "^3.0.0",
+    "@types/mongoose": "^4.7.28",
+    "@types/promise": "^7.1.30",
+    "@types/reflect-metadata": "^0.1.0",
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.1",
     "express-validator": "^4.3.0",
+    "inversify": "^4.6.0",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.13.6"
+    "mongoose": "^4.13.6",
+    "pg": "^7.4.1",
+    "promise": "^8.0.1",
+    "reflect-metadata": "^0.1.10",
+    "sequelize": "^4.32.2"
   },
   "devDependencies": {
     "Faker": "^0.7.2",
@@ -33,11 +46,16 @@
     "eslint-plugin-import": "^2.8.0",
     "jest": "^21.2.1",
     "nodemon": "^1.12.5",
+    "supertest": "^3.0.0",
+    "ts-jest": "^21.2.4",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.8.0",
     "typescript": "^2.6.2"
   },
   "jest": {
     "transform": {
-      ".js": "babel-jest"
+      ".js": "babel-jest",
+      ".ts": "ts-jest"
     }
   }
 }
