@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { Container } from 'inversify';
 import { bindAdminModule } from './admin/containerBindings';
 
@@ -9,5 +8,3 @@ export const getContainer = (): Container => container;
 export const initBindings = (): void => {
   bindAdminModule(container);
 };
-
-

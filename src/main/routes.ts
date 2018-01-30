@@ -10,7 +10,7 @@ const mergeRoutes = (): Array<RouteConfig> => {
 
 export function attachRoutes(router: Router) {
   mergeRoutes().forEach((routeConfig: RouteConfig) => {
-    router.get(routeConfig.path, routeConfig.handler);
+    router.post(routeConfig.path, routeConfig.handler);
   });
 
   return router;

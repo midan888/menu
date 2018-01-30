@@ -2,9 +2,18 @@
 version: '3'
 
 services:
+  adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
   db:
-    image: mongo
+    image: postgres:latest
 
     ports:
-      - "27017:27017"
-    container_name: admin-skeleton
+      - "5432:5432"
+    container_name: admin-skeleton-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: someroot
+      POSTGRES_DB: admin-skeleton

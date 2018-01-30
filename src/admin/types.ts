@@ -8,7 +8,7 @@ export interface ISaveAdminRequest {
   password: string;
 }
 
-export type SaveAdminRequestBody = {
+export type CreateAdminRequestBody = {
   firstName: string;
   lastName: string;
   email: string;
@@ -16,6 +16,6 @@ export type SaveAdminRequestBody = {
 };
 
 export interface IAdminRepository {
-  // saveAdmin: (body: SaveAdminRequestBody) => void;
+  insertAdmin: (CreateAdminRequestBody) => Promise<string[]>;
   findAll: () => Promise<string[]>;
 }

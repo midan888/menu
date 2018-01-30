@@ -7,4 +7,7 @@ export const getRoutes = () => ([
   new RouteConfig('/admin/findAll', (req, res) => {
     getContainer().get<AdminController>(TYPE_ADMIN_CONTROLLER).findAll(req, res);
   }),
+  new RouteConfig('/admin/create', (req, res) => {
+    getContainer().get<AdminController>(TYPE_ADMIN_CONTROLLER).createAdmin(req, res);
+  }),
 ]);
