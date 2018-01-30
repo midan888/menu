@@ -1,5 +1,5 @@
 import RouteConfig from '../main/RouteConfig';
-import AdminController from './AdminController';
+import { AdminController } from './AdminController';
 import { getContainer } from '../inversify.config';
 import { TYPE_ADMIN_CONTROLLER } from './types';
 

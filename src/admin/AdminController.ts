@@ -4,7 +4,7 @@ import { CreateAdminRequestBody, TYPE_ADMIN_REPO } from './types';
 import AdminRepository from './AdminRepository';
 
 @injectable()
-class AdminController {
+export class AdminController {
   private adminRepo: AdminRepository;
 
   constructor(@inject(TYPE_ADMIN_REPO) adminRepository: AdminRepository) {
@@ -17,9 +17,12 @@ class AdminController {
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
+      phoneNumber: req.body.phoneNumber,
     };
 
-    this.adminRepo.insertAdmin(createAdminRequestBody);
+    const createdAdmin = await this.adminRepo.insertAdmin(createAdminRequestBody);
+
+    res.json(createdAdmin);
   }
 
   async findAll(req: Request, res: Response) {
@@ -27,4 +30,3 @@ class AdminController {
   }
 }
 
-export default AdminController;

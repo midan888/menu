@@ -4,7 +4,7 @@
   "description": "backend for skeleton app",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "lint": "eslint app/**",
     "start": "nodemon",
     "build": "tsc"
@@ -12,12 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.16.8",
     "@types/cors": "^2.8.3",
     "@types/express": "^4.0.39",
     "@types/express-validator": "^3.0.0",
     "@types/node": "^9.4.0",
     "@types/reflect-metadata": "^0.1.0",
+    "@types/request": "^2.47.0",
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
@@ -27,11 +29,13 @@
     "lodash": "^4.17.4",
     "pg": "^7.4.1",
     "reflect-metadata": "^0.1.10",
+    "request": "^2.83.0",
     "sequelize": "^4.32.2",
     "sequelize-cli": "^3.2.0",
     "typeorm": "^0.1.11"
   },
   "devDependencies": {
+    "@types/supertest": "^2.0.4",
     "Faker": "^0.7.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.3",
@@ -52,8 +56,16 @@
   },
   "jest": {
     "transform": {
-      ".js": "babel-jest",
-      ".ts": "ts-jest"
-    }
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

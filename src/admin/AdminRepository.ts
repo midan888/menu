@@ -1,6 +1,6 @@
 import { CreateAdminRequestBody } from './types';
 import { injectable } from 'inversify';
-import { getRepository, Repository, getConnection } from 'typeorm';
+import { getRepository, Repository, getConnection, BaseEntity } from 'typeorm';
 import { AdminEntity } from './AdminEntity';
 
 @injectable()
@@ -14,8 +14,16 @@ class AdminRepository {
     return this.repository.find();
   }
 
-  insertAdmin(adminData: CreateAdminRequestBody): Promise<string[]> {
-    return Promise.resolve(['mika']);
+  insertAdmin(data: CreateAdminRequestBody): Promise<AdminEntity> {
+    const adminEntity = new AdminEntity();
+
+    adminEntity.email = data.email;
+    adminEntity.password = data.password;
+    adminEntity.firstName = data.firstName;
+    adminEntity.lastName = data.lastName;
+    adminEntity.phoneNumber = data.phoneNumber;
+
+    return this.repository.save(adminEntity);
   }
 }
 

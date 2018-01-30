@@ -13,6 +13,7 @@ export type CreateAdminRequestBody = {
   lastName: string;
   email: string;
   password: string;
+  phoneNumber: string;
 };
 
 export interface IAdminRepository {
