@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import { CreateAdminRequestBody, TYPE_ADMIN_REPO } from './types';
+import { TYPE_ADMIN_REPO } from './types';
 import AdminRepository from './AdminRepository';
 
 @injectable()
@@ -17,12 +17,11 @@ export class AdminController {
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
+      confirmPassword: req.body.confirmPassword,
       phoneNumber: req.body.phoneNumber,
     };
 
-    const createdAdmin = await this.adminRepo.insertAdmin(createAdminRequestBody);
-
-    res.json(createdAdmin);
+    res.json(await this.adminRepo.insertAdmin(createAdminRequestBody));
   }
 
   async findAll(req: Request, res: Response) {

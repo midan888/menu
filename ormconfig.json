@@ -6,7 +6,7 @@
    "password": "someroot",
    "database": "admin-skeleton",
    "synchronize": true,
-   "logging": true,
+   "logging": false,
    "entities": [
       "src/**/*Entity.ts"
    ],
