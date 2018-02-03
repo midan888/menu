@@ -30,7 +30,6 @@ export class AdminController {
   }
 
   async search(req: Request, res: Response) {
-
     res.json(await this.service.search());
   }
 }

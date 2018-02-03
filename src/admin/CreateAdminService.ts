@@ -1,5 +1,6 @@
 import { CreateAdminRequestBody, TYPE_ADMIN_REPO } from './interfaces';
 import { inject, injectable } from 'inversify';
+import { hash } from 'bcrypt';
 import { AdminEntity } from './AdminEntity';
 import { Repository } from 'typeorm';
 
@@ -11,11 +12,11 @@ export class CreateAdminService {
     this.repository = adminRepository;
   }
 
-  createAdmin(data: CreateAdminRequestBody): Promise<AdminEntity> {
+  async createAdmin(data: CreateAdminRequestBody): Promise<AdminEntity> {
     const adminEntity = new AdminEntity();
 
     adminEntity.email = data.email;
-    adminEntity.password = data.password;
+    adminEntity.password = await hash(data.password, 10);
     adminEntity.firstName = data.firstName;
     adminEntity.lastName = data.lastName;
     adminEntity.phoneNumber = data.phoneNumber;
