@@ -1,12 +1,6 @@
 export const TYPE_ADMIN_CONTROLLER = 'adminController';
 export const TYPE_ADMIN_REPO = 'adminRepo';
-
-export interface ISaveAdminRequest {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-}
+export const TYPE_ADMIN_SERVICE_CREATE = 'createAdminService';
 
 export type CreateAdminRequestBody = {
   firstName: string;
@@ -17,7 +11,3 @@ export type CreateAdminRequestBody = {
   phoneNumber: string;
 };
 
-export interface IAdminRepository {
-  insertAdmin: (CreateAdminRequestBody) => Promise<string[]>;
-  findAll: () => Promise<string[]>;
-}

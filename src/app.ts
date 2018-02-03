@@ -21,7 +21,7 @@ export const initApp = () => {
     // }
 
     console.log(err);
-    res.status(500).json(err.message);
+    res.status(500).json(err);
   });
 
   return app;

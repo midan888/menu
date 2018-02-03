@@ -1,6 +1,6 @@
-import { string, mixed } from 'yup';
+import { string } from 'yup';
 
-export const createAdmin = {
+export const createAdminRules = {
   firstName: string().min(2).required(),
   lastName: string().min(2).required(),
   email: string().email().required(),

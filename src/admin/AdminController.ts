@@ -1,14 +1,15 @@
 import { Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
-import { TYPE_ADMIN_REPO } from './types';
-import AdminRepository from './AdminRepository';
+import { TYPE_ADMIN_SERVICE_CREATE } from './interfaces';
+import { validationError } from '../main/errors';
+import { CreateAdminService } from './CreateAdminService';
 
 @injectable()
 export class AdminController {
-  private adminRepo: AdminRepository;
+  private service: CreateAdminService;
 
-  constructor(@inject(TYPE_ADMIN_REPO) adminRepository: AdminRepository) {
-    this.adminRepo = adminRepository;
+  constructor(@inject(TYPE_ADMIN_SERVICE_CREATE) service) {
+    this.service = service;
   }
 
   async createAdmin(req: Request, res: Response) {
@@ -21,11 +22,15 @@ export class AdminController {
       phoneNumber: req.body.phoneNumber,
     };
 
-    res.json(await this.adminRepo.insertAdmin(createAdminRequestBody));
+    if (createAdminRequestBody.password !== createAdminRequestBody.confirmPassword) {
+      throw validationError('confirmPassword', 'password.not.match');
+    }
+
+    res.json(await this.service.createAdmin(createAdminRequestBody));
   }
 
-  async findAll(req: Request, res: Response) {
-    res.json(await this.adminRepo.findAll());
+  async search(req: Request, res: Response) {
+
+    res.json(await this.service.search());
   }
 }
-
