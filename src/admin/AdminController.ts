@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { inject, injectable } from 'inversify';
 import { TYPE_ADMIN_SERVICE_CREATE } from './interfaces';
-import { validationError } from '../main/errors';
+import { validationError } from '../core/errors';
 import { CreateAdminService } from './CreateAdminService';
 
 @injectable()

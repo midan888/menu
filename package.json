@@ -34,7 +34,6 @@
   "devDependencies": {
     "@types/jest": "^23.1.4",
     "@types/supertest": "^2.0.4",
-    "faker": "*",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.5",
     "babel-jest": "^23.2.0",
@@ -43,6 +42,7 @@
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
+    "faker": "*",
     "jest": "^23.3.0",
     "nodemon": "^1.17.5",
     "supertest": "^3.1.0",

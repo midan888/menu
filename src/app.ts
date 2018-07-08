@@ -1,6 +1,6 @@
 import { NextFunction, Response, Router } from 'express';
 import * as cors from 'cors';
-import { attachRoutes } from './main/routes';
+import { attachRoutes } from './core/routes';
 import { Request } from 'express-serve-static-core';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';

@@ -3,15 +3,17 @@ import { getRoutes } from '../admin/routes';
 import { validateRequestMiddleWare } from './validation';
 import { Request, Response } from 'express';
 import { getContainer } from '../inversify.config';
+import restRoutes from '../rest/routes';
 
 const mergeRoutes = (): Array<RouteConfig> => {
   return [
     ...getRoutes(),
+    ...restRoutes(),
   ];
 };
 
 export function attachRoutes(router: Router) {
-  mergeRoutes().forEach((routeConfig: RouteConfig) => {
+  mergeRoutes().forEach((routeConfig: RouteConfig) => { //
     try {
       if (routeConfig.validationRules) {
         router.post(

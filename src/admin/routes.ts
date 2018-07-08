@@ -1,4 +1,4 @@
-import { RouteConfig } from '../main/routes';
+import { RouteConfig } from '../core/routes';
 import { TYPE_ADMIN_CONTROLLER } from './interfaces';
 import { createAdminRules } from './validation';
 

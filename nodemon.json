@@ -1,6 +1,7 @@
 {
   "watch": ["src"],
-  "ignore": ["src/**/*.spec.ts"],
-  "exec": "node ./index.js",
+  "env": {
+    "NODE_ENV": "development"
+  },
   "ext": "ts"
 }

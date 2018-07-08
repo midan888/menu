@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { initBindings } from './inversify.config';
-import { initConnection } from './main/database';
+import { initConnection } from './core/database';
 import { initApp } from './app';
 
 initBindings();
