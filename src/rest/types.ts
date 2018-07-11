@@ -9,6 +9,16 @@ export type CreateRestRequest = {
   name: string
 };
 
+export type DeleteRestRequest = {
+  id: number,
+};
+
+export type SearchRestRequest = {
+
+};
+
 export interface IRestCRUDService {
   create(req: CreateRestRequest): Promise<RestaurantEntity>;
+  delete(req: DeleteRestRequest): Promise<void>;
+  search(req: SearchRestRequest): Promise<RestaurantEntity[]>;
 }

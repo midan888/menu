@@ -12,7 +12,6 @@ export const initApp = () => {
   app.use(cors());
   app.use(bodyParser.json());
   app.use(attachRoutes(router));
-
   app.use((err: any, req: Request, res: Response, next: NextFunction) => {
     // if (err instanceof ValidationError) {
     //   // res.status(422).json(err.errors);

@@ -19,6 +19,20 @@ class RestAdminController {
 
     res.json(await this.crudService.create(createRestReq));
   }
+
+  async deleteRestaurant(req: Request, res: Response) {
+    const deleteRestReq = {
+      id: req.body.id,
+    };
+
+    res.json(await this.crudService.delete(deleteRestReq));
+  }
+
+  async searchRestaurants(req: Request, res: Response) {
+    const requestBody = {};
+
+    res.json(await this.crudService.search(requestBody));
+  }
 }
 
 export default RestAdminController;
