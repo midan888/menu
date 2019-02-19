@@ -7,7 +7,7 @@ const createProduct = async () => {
   };
 
   return postRequest('/products', product);
-}
+};
 
 describe('product routes', () => {
   test('create product', async () => {

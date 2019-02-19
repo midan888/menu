@@ -10,6 +10,31 @@ class ProductEntity {
 
   @Column()
   restaurantId: number;
+
+  @Column({
+    default: 0
+  })
+  price: number;
+
+  @Column({
+    default: ''
+  })
+  description: string;
+
+  @Column({
+    default: ''
+  })
+  weight: string;
+
+  @Column({
+    default: ''
+  })
+  calories: string;
+
+  @Column({
+    default: ''
+  })
+  image: string;
 }
 
 export default ProductEntity;
