@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity({ name: 'restaurants'})
-class RestaurantEntity {
+@Entity({ name: 'products'})
+class ProductEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -9,10 +9,7 @@ class RestaurantEntity {
   name: string;
 
   @Column()
-  address: string;
-
-  @Column()
-  phoneNumber: string;
+  restaurantId: number;
 }
 
-export default RestaurantEntity;
+export default ProductEntity;

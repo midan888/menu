@@ -10,8 +10,7 @@
     "emitDecoratorMetadata": true,
     "removeComments": true,
     "noLib": false,
-    "target": "es6",
-    "allowJs": true
+    "target": "es6"
   },
   "include": [
     "src/**/**.ts"

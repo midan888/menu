@@ -2,18 +2,13 @@
 version: '3'
 
 services:
-  adminer:
-      image: adminer
-      restart: always
-      ports:
-        - 8080:8080
   db:
-    image: postgres:latest
-
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "5432:5432"
-    container_name: admin-skeleton-db
+      - "3306:3306"
+    container_name: menu-db
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: someroot
-      POSTGRES_DB: admin-skeleton
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: menu
+      MYSQL_USER: root

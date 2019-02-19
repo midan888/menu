@@ -1,10 +1,10 @@
 {
-   "type": "postgres",
+   "type": "mysql",
    "host": "localhost",
-   "port": 5432,
-   "username": "admin",
-   "password": "someroot",
-   "database": "admin-skeleton",
+   "port": 3306,
+   "username": "root",
+   "password": "12345",
+   "database": "menu",
    "synchronize": true,
    "logging": false,
    "entities": [

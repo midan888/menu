@@ -1,9 +1,9 @@
 import { NextFunction, Response, Router } from 'express';
 import * as cors from 'cors';
-import { attachRoutes } from './core/routes';
 import { Request } from 'express-serve-static-core';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
+import { attachRoutes } from './routes';
 
 export const initApp = () => {
   const router = Router();
