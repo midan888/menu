@@ -10,7 +10,7 @@ export const getProducts = async (req: Request, res: Response) => {
 };
 
 export const getProductById = async (req: Request, res: Response) => {
-  const product = await getRepository(ProductEntity).findOne(req.query.id);
+  const product = await getRepository(ProductEntity).findOne(req.params.id);
 
   res.json(product);
 };
@@ -25,4 +25,22 @@ export const createProduct = async (req: Request, res: Response) => {
   const product = await getRepository(ProductEntity).save(productRequest);
 
   res.json(product);
+};
+
+export const updateProduct = async (req: Request, res: Response) => {
+  const { body } = req;
+  const productRequest = {
+    name: body.name,
+    restaurantId: body.restaurantId,
+  };
+
+  const result = await getRepository(ProductEntity).update(body.id, productRequest);
+
+  res.json(result);
+};
+
+export const deleteProduct = async (req: Request, res: Response) => {
+  const result = await getRepository(ProductEntity).delete(req.params.id);
+
+  res.json(result);
 };
