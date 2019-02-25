@@ -20,6 +20,11 @@ export const createProduct = async (req: Request, res: Response) => {
   const productRequest = {
     name: body.name,
     restaurantId: body.restaurantId,
+    description: body.description,
+    price: body.price,
+    weight: body.weight,
+    calories: body.calories,
+    image: body.image,
   };
 
   const product = await getRepository(ProductEntity).save(productRequest);
@@ -32,6 +37,11 @@ export const updateProduct = async (req: Request, res: Response) => {
   const productRequest = {
     name: body.name,
     restaurantId: body.restaurantId,
+    description: body.description,
+    price: body.price,
+    weight: body.weight,
+    calories: body.calories,
+    image: body.image,
   };
 
   const result = await getRepository(ProductEntity).update(body.id, productRequest);
